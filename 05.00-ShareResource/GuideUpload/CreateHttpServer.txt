@@ -1,0 +1,9 @@
+﻿1. Tải nodejs
+    link: https://nodejs.org/en/download
+2. vào cmd chạy lệnh:
+npm i http-server -g
+3. Tạo thư mục chứa file upload. Thư mục này sẽ thay thế value ở biến "path" trong DocumentFileController.cs
+4. Vào folder chứa file chạy lệnh:
+    http-server
+    copy http-link trong console để thay thế value biến HostUploadFile trong DocumentFileController.cs
+File upload sẽ được lưu vào thư mục chứa file, link sẽ được tạo sau khi upload thành công
