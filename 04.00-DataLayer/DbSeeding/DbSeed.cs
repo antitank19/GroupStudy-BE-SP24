@@ -543,93 +543,93 @@ namespace DataLayer.DbSeeding
                         //},
                         #endregion
         };
-        public static GroupSubject[] GroupSubjects = new GroupSubject[]
-        {
-            #region Subject Group 1
-            new GroupSubject
-            {
-                Id = 1,
-                GroupId = 1,
-                SubjectId = (int)SubjectEnum.Toan
-            },
-            new GroupSubject
-            {
-                Id = 2,
-                GroupId = 1,
-                SubjectId = (int)SubjectEnum.Van
-            },
-            new GroupSubject
-            {
-                Id = 3,
-                GroupId = 1,
-                SubjectId = (int)SubjectEnum.Anh
-            },
-            #endregion
-            #region Subject group 2
-            new GroupSubject
-            {
-                Id = 4,
-                GroupId = 2,
-                SubjectId = (int)SubjectEnum.Toan
-            },
-            new GroupSubject
-            {
-                Id = 5,
-                GroupId = 2,
-                SubjectId = (int)SubjectEnum.Li
-            },
-            new GroupSubject
-            {
-                Id = 6,
-                GroupId = 2,
-                SubjectId = (int)SubjectEnum.Hoa
-            } ,
-            #endregion
-            #region Subject group 3
-            new GroupSubject
-            {
-                Id = 7,
-                GroupId = 3,
-                SubjectId = (int)SubjectEnum.Su
-            },
-            new GroupSubject
-            {
-                Id = 8,
-                GroupId = 3,
-                SubjectId = (int)SubjectEnum.Dia
-            },
-            #endregion
-            #region Subject group 4
-            new GroupSubject
-            {
-                Id = 9,
-                GroupId = 4,
-                SubjectId = (int)SubjectEnum.Su
-            },
-            #endregion
-            #region Subject group 5
-            new GroupSubject
-            {
-                Id = 10,
-                GroupId = 5,
-                SubjectId = (int)SubjectEnum.Su
-            },
-            #endregion
-            #region Subject group 6
-            new GroupSubject
-            {
-                Id = 11,
-                GroupId = 6,
-                SubjectId = (int)SubjectEnum.Su
-            },
-            #endregion
-            new GroupSubject
-            {
-                Id = 12,
-                GroupId = 1,
-                SubjectId = (int)SubjectEnum.Li
-            },
-        };
+        //public static GroupSubject[] GroupSubjects = new GroupSubject[]
+        //{
+        //    #region Subject Group 1
+        //    new GroupSubject
+        //    {
+        //        Id = 1,
+        //        GroupId = 1,
+        //        SubjectId = (int)SubjectEnum.Toan
+        //    },
+        //    new GroupSubject
+        //    {
+        //        Id = 2,
+        //        GroupId = 1,
+        //        SubjectId = (int)SubjectEnum.Van
+        //    },
+        //    new GroupSubject
+        //    {
+        //        Id = 3,
+        //        GroupId = 1,
+        //        SubjectId = (int)SubjectEnum.Anh
+        //    },
+        //    #endregion
+        //    #region Subject group 2
+        //    new GroupSubject
+        //    {
+        //        Id = 4,
+        //        GroupId = 2,
+        //        SubjectId = (int)SubjectEnum.Toan
+        //    },
+        //    new GroupSubject
+        //    {
+        //        Id = 5,
+        //        GroupId = 2,
+        //        SubjectId = (int)SubjectEnum.Li
+        //    },
+        //    new GroupSubject
+        //    {
+        //        Id = 6,
+        //        GroupId = 2,
+        //        SubjectId = (int)SubjectEnum.Hoa
+        //    } ,
+        //    #endregion
+        //    #region Subject group 3
+        //    new GroupSubject
+        //    {
+        //        Id = 7,
+        //        GroupId = 3,
+        //        SubjectId = (int)SubjectEnum.Su
+        //    },
+        //    new GroupSubject
+        //    {
+        //        Id = 8,
+        //        GroupId = 3,
+        //        SubjectId = (int)SubjectEnum.Dia
+        //    },
+        //    #endregion
+        //    #region Subject group 4
+        //    new GroupSubject
+        //    {
+        //        Id = 9,
+        //        GroupId = 4,
+        //        SubjectId = (int)SubjectEnum.Su
+        //    },
+        //    #endregion
+        //    #region Subject group 5
+        //    new GroupSubject
+        //    {
+        //        Id = 10,
+        //        GroupId = 5,
+        //        SubjectId = (int)SubjectEnum.Su
+        //    },
+        //    #endregion
+        //    #region Subject group 6
+        //    new GroupSubject
+        //    {
+        //        Id = 11,
+        //        GroupId = 6,
+        //        SubjectId = (int)SubjectEnum.Su
+        //    },
+        //    #endregion
+        //    new GroupSubject
+        //    {
+        //        Id = 12,
+        //        GroupId = 1,
+        //        SubjectId = (int)SubjectEnum.Li
+        //    },
+        //};
         public static Invite[] Invites = new Invite[]
         {
             #region Group 1

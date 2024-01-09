@@ -79,7 +79,10 @@ namespace ShareResource.Mapper
 
         private void MapSchedule()
         {
-           CreateMap<Schedule, ScheduleGetDto>()
+            CreateMap<ScheduleMeetingCreateDto, Schedule>()
+                 .ForMember(dest => dest.GroupSubjects, opt => opt.MapFrom(
+                    src => src.SubjectIds.Select(id => new GroupSubject { SubjectId = (int)id })));
+            CreateMap<Schedule, ScheduleGetDto>()
             //Live
                 .ForMember(dest => dest.CurrentLiveMeeting, opt => opt.MapFrom(
                     src => src.Meetings
@@ -190,8 +193,8 @@ namespace ShareResource.Mapper
                     src => src.Group.GroupMembers
                         .Where(e => e.MemberRole == GroupMemberRole.Leader || e.MemberRole == GroupMemberRole.Member)
                         .Count()))
-                .ForMember(dest => dest.Subjects, opt => opt.MapFrom(
-                    src => src.Group.GroupSubjects.Select(gs => gs.Subject.Name)))
+                //.ForMember(dest => dest.Subjects, opt => opt.MapFrom(
+                //    src => src.Group.GroupSubjects.Select(gs => gs.Subject.Name)))
                 //.ForMember(dest => dest.Email, opt => opt.MapFrom(
                 //    src => src.Account.Username))
                 .PreserveReferences();
@@ -230,8 +233,8 @@ namespace ShareResource.Mapper
                     src => src.Group.GroupMembers
                         .Where(e => e.MemberRole == GroupMemberRole.Leader || e.MemberRole == GroupMemberRole.Member)
                         .Count()))
-                .ForMember(dest => dest.Subjects, opt => opt.MapFrom(
-                    src => src.Group.GroupSubjects.Select(gs => gs.Subject.Name)))
+                //.ForMember(dest => dest.Subjects, opt => opt.MapFrom(
+                //    src => src.Group.GroupSubjects.Select(gs => gs.Subject.Name)))
                 .PreserveReferences();
             //CreateMap<GroupMemberRequestCreateDto, GroupMember>()   
             //    .ForMember(dest => dest.State, opt => opt.MapFrom(src => GroupMemberState.Requesting));
@@ -247,17 +250,17 @@ namespace ShareResource.Mapper
 
         private void MapGroup()
         {
-            CreateMap<GroupCreateDto, Group>()
-                .ForMember(dest => dest.GroupSubjects, opt => opt.MapFrom(
-                    src => src.SubjectIds.Select(id => new GroupSubject { SubjectId = (int)id })
-                ));
+            //CreateMap<GroupCreateDto, Group>()
+            //    .ForMember(dest => dest.GroupSubjects, opt => opt.MapFrom(
+            //        src => src.SubjectIds.Select(id => new GroupSubject { SubjectId = (int)id })
+            //    ));
             CreateMap<Group, GroupGetListDto>()
                 .ForMember(dest => dest.MemberCount, opt => opt.MapFrom<int>(
                     src => src.GroupMembers
                         .Where(e => e.MemberRole == GroupMemberRole.Leader|| e.MemberRole == GroupMemberRole.Member)
                         .Count()))
-                .ForMember(dest => dest.Subjects, opt => opt.MapFrom(
-                    src => src.GroupSubjects.Select(gs => gs.Subject.Name)))
+                //.ForMember(dest => dest.Subjects, opt => opt.MapFrom(
+                //    src => src.GroupSubjects.Select(gs => gs.Subject.Name)))
                 .PreserveReferences();
 
             CreateMap<Group, GroupDetailForLeaderGetDto>()
@@ -276,8 +279,8 @@ namespace ShareResource.Mapper
                 .ForMember(dest => dest.DeclineRequest, opt => opt.MapFrom(
                     src => src.JoinRequests
                         .Where(e => e.State == RequestStateEnum.Decline)))
-                .ForMember(dest => dest.Subjects, opt => opt.MapFrom(
-                    src => src.GroupSubjects.Select(gs => gs.Subject)))
+                //.ForMember(dest => dest.Subjects, opt => opt.MapFrom(
+                //    src => src.GroupSubjects.Select(gs => gs.Subject)))
 
                 //Past
                 .ForMember(dest => dest.PastMeetings, opt => opt.MapFrom(
@@ -298,8 +301,8 @@ namespace ShareResource.Mapper
                     src => src.GroupMembers
                         .Where(e => e.MemberRole == GroupMemberRole.Leader || e.MemberRole == GroupMemberRole.Member)
                         .Select(e => e.Account)))
-                .ForMember(dest => dest.Subjects, opt => opt.MapFrom(
-                    src => src.GroupSubjects.Select(gs => gs.Subject)))
+                //.ForMember(dest => dest.Subjects, opt => opt.MapFrom(
+                //    src => src.GroupSubjects.Select(gs => gs.Subject)))
                 //Live
                 .ForMember(dest => dest.LiveMeetings, opt => opt.MapFrom(
                     src => src.Meetings

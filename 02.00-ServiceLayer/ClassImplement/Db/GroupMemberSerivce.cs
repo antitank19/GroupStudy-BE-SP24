@@ -66,7 +66,7 @@ namespace ServiceLayer.ClassImplement.Db
             IQueryable<Request> list = repos.Requests.GetList()
                 .Where(e => e.AccountId == studentId && e.State == RequestStateEnum.Waiting)
                 .Include(e => e.Account)
-                .Include(e => e.Group).ThenInclude(e => e.GroupSubjects).ThenInclude(e => e.Subject)
+                .Include(e => e.Group)/*.ThenInclude(e => e.GroupSubjects).ThenInclude(e => e.Subject)*/
                 .Include(e => e.Group).ThenInclude(e => e.GroupMembers);
             IQueryable<JoinRequestForStudentGetDto> mapped = list.ProjectTo<JoinRequestForStudentGetDto>(mapper.ConfigurationProvider);
             return mapped;
@@ -117,7 +117,7 @@ namespace ServiceLayer.ClassImplement.Db
             IQueryable<Invite> list = repos.Invites.GetList()
                 .Where(e => e.AccountId == studentId && e.State == RequestStateEnum.Waiting)
                 .Include(e => e.Account)
-                .Include(e => e.Group).ThenInclude(e => e.GroupSubjects).ThenInclude(e => e.Subject)
+                //.Include(e => e.Group).ThenInclude(e => e.GroupSubjects).ThenInclude(e => e.Subject)
                 .Include(e => e.Group).ThenInclude(e => e.GroupMembers);
             return list.ProjectTo<JoinInviteForStudentGetDto>(mapper.ConfigurationProvider);
         }

@@ -10,9 +10,13 @@ namespace DataLayer.DBObject
         public int Id { get; set; }
 
         //Subject
-        [ForeignKey("GroupId")]
-        public int GroupId { get; set; }
-        public Group Group { get; set; }
+        //[ForeignKey("GroupId")]
+        //public int GroupId { get; set; }
+        //public Group Group { get; set; }
+
+        [ForeignKey("ScheduleId")]
+        public int ScheduleId { get; set; }
+        public Schedule Schedule { get; set; }
 
         //Subject
         [ForeignKey("SubjectId")]

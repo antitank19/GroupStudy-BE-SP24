@@ -25,7 +25,7 @@ namespace RepositoryLayer.ClassImplement
         {
             return await dbContext.Groups
                 .Include(e=>e.Class)
-                .Include(e=>e.GroupSubjects).ThenInclude(e=>e.Subject)
+                //.Include(e=>e.GroupSubjects).ThenInclude(e=>e.Subject)
                 .Include(e=>e.Meetings).ThenInclude(m=>m.Chats).ThenInclude(c=>c.Account)
                 .Include(e=>e.GroupMembers).ThenInclude(e=>e.Account)
                 .Include(e=>e.JoinInvites).ThenInclude(e=>e.Account)

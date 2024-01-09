@@ -29,22 +29,22 @@ namespace ServiceLayer.ClassImplement.Db
             {
                 return repos.Groups.GetList()
                     .Include(e => e.GroupMembers)
-                    .Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
+                    //.Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
                     .Where(e =>
                         !e.GroupMembers.Any(e => e.AccountId == studentId)
                         && ((EF.Functions.Like(e.Id.ToString(), search + "%"))
                         || e.Name.ConvertToUnsign().ToLower().Contains(search)
-                        || search.Contains(e.ClassId.ToString())
-                        || e.GroupSubjects.Any(gs => gs.Subject.Name.ConvertToUnsign().ToLower().Contains(search))));
+                        || search.Contains(e.ClassId.ToString())));
+                        //|| e.GroupSubjects.Any(gs => gs.Subject.Name.ConvertToUnsign().ToLower().Contains(search))));
             }
             return repos.Groups.GetList()
                 .Include(e => e.GroupMembers)
-                .Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
+                //.Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
                 .Where(e =>
                     (EF.Functions.Like(e.Id.ToString(), search + "%"))
                     || e.Name.ConvertToUnsign().ToLower().Contains(search)
-                    || search.Contains(e.ClassId.ToString())
-                    || e.GroupSubjects.Any(gs=>gs.Subject.Name.ConvertToUnsign().ToLower().Contains(search)));
+                    || search.Contains(e.ClassId.ToString()));
+                    //|| e.GroupSubjects.Any(gs=>gs.Subject.Name.ConvertToUnsign().ToLower().Contains(search)));
             //return repos.Accounts.GetList().Include(e=>e.GroupMembers)
             //    .Where(e =>
             //        !e.GroupMembers.Any(e=>e.GroupId==groupId)
@@ -62,14 +62,14 @@ namespace ServiceLayer.ClassImplement.Db
             {
                 return repos.Groups.GetList()
                     .Include(e => e.GroupMembers)
-                    .Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
-                    .Where(e =>!e.GroupMembers.Any(e => e.AccountId == studentId)
-                        && e.GroupSubjects.Any(gs => gs.Subject.Name.ConvertToUnsign().ToLower().Contains(search)));
+                    //.Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
+                    .Where(e => !e.GroupMembers.Any(e => e.AccountId == studentId));
+                        //&& e.GroupSubjects.Any(gs => gs.Subject.Name.ConvertToUnsign().ToLower().Contains(search)));
             }
             return repos.Groups.GetList()
-                .Include(e => e.GroupMembers)
-                .Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
-                .Where(e => e.GroupSubjects.Any(gs => gs.Subject.Name.ConvertToUnsign().ToLower().Contains(search)));
+                .Include(e => e.GroupMembers);
+                //.Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
+                //.Where(e => e.GroupSubjects.Any(gs => gs.Subject.Name.ConvertToUnsign().ToLower().Contains(search)));
         }
 
         public async Task<IQueryable<Group>> SearchGroupsByClass(string search, int studentId, bool newGroup)
@@ -79,13 +79,13 @@ namespace ServiceLayer.ClassImplement.Db
             {
                 return repos.Groups.GetList()
                     .Include(e => e.GroupMembers)
-                    .Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
+                    //.Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
                     .Where(e => !e.GroupMembers.Any(e => e.AccountId == studentId)
                         && search.Contains(e.ClassId.ToString()));
             }
             return repos.Groups.GetList()
                 .Include(e => e.GroupMembers)
-                .Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
+                //.Include(e => e.GroupSubjects).ThenInclude(e => e.Subject)
                 .Where(e => search.Contains(e.ClassId.ToString()));
         }
 
@@ -143,22 +143,22 @@ namespace ServiceLayer.ClassImplement.Db
             var group = await repos.Groups.GetByIdAsync(dto.Id);
             //Remove subject, nếu dto ko có thì sẽ loại
             group.PatchUpdate<Group, GroupUpdateDto>(dto);
-            List<GroupSubject> groupSubjects = group.GroupSubjects.ToList();
-            foreach (GroupSubject groupSubject in groupSubjects)
-            {
-                if (!dto.SubjectIds.Cast<int>().Contains(groupSubject.SubjectId))
-                {
-                    group.GroupSubjects.Remove(groupSubject);
-                }
-            }
-            //Add new subject, nếu group ko có thì add
-            foreach (int subjectId in dto.SubjectIds)
-            {
-                 if(!group.GroupSubjects.Any(e=>e.SubjectId == subjectId))
-                {
-                    group.GroupSubjects.Add(new GroupSubject { GroupId = group.Id, SubjectId = subjectId });
-                }
-            }
+            //List<GroupSubject> groupSubjects = group.GroupSubjects.ToList();
+            //foreach (GroupSubject groupSubject in groupSubjects)
+            //{
+            //    if (!dto.SubjectIds.Cast<int>().Contains(groupSubject.SubjectId))
+            //    {
+            //        group.GroupSubjects.Remove(groupSubject);
+            //    }
+            //}
+            ////Add new subject, nếu group ko có thì add
+            //foreach (int subjectId in dto.SubjectIds)
+            //{
+            //     if(!group.GroupSubjects.Any(e=>e.SubjectId == subjectId))
+            //    {
+            //        group.GroupSubjects.Add(new GroupSubject { GroupId = group.Id, SubjectId = subjectId });
+            //    }
+            //}
             //if (dto.())
             //{
             //    repos.G

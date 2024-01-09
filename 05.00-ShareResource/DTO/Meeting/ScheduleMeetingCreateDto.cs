@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShareResource.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,6 @@ namespace ShareResource.DTO
 
         public TimeSpan ScheduleStartTime { get; set; }
         public TimeSpan ScheduleEndTime { get; set; }
-
+        public virtual ICollection<SubjectEnum> SubjectIds { get; set; }
     }
 }

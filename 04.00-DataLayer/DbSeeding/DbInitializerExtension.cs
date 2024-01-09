@@ -95,12 +95,12 @@ namespace DataLayer.ImMemorySeeding
                 }
                 #endregion
 
-                #region seed group subject
-                if (!context.GroupSubjects.Any())
-                {
-                    context.GroupSubjects.AddRange(DbSeed.GroupSubjects);
-                }
-                #endregion
+                //#region seed group subject
+                //if (!context.GroupSubjects.Any())
+                //{
+                //    context.GroupSubjects.AddRange(DbSeed.GroupSubjects);
+                //}
+                //#endregion
 
                 #region seed invite
                 if (!context.Invites.Any())

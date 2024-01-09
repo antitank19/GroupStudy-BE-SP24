@@ -331,65 +331,65 @@ namespace DataLayer.DBContext
                     //}
                 );
                 #endregion
-                #region seed GroupSubjects
-                modelBuilder.Entity<GroupSubject>().HasData(
-                    DbSeed.GroupSubjects
-                    //#region Subject Group 1
-                    //    new GroupSubject
-                    //    {
-                    //        Id = 1,
-                    //        GroupId = 1,
-                    //        SubjectId = (int)SubjectEnum.Toan
-                    //    },
-                    //    new GroupSubject
-                    //    {
-                    //        Id = 2,
-                    //        GroupId = 1,
-                    //        SubjectId = (int)SubjectEnum.Van
-                    //    },
-                    //    new GroupSubject
-                    //    {
-                    //        Id = 3,
-                    //        GroupId = 1,
-                    //        SubjectId = (int)SubjectEnum.Anh
-                    //    },
-                    //#endregion
-                    //#region Subject group 2
-                    //    new GroupSubject
-                    //    {
-                    //        Id = 4,
-                    //        GroupId = 2,
-                    //        SubjectId = (int)SubjectEnum.Toan
-                    //    },
-                    //    new GroupSubject
-                    //    {
-                    //        Id = 5,
-                    //        GroupId = 2,
-                    //        SubjectId = (int)SubjectEnum.Li
-                    //    },
-                    //    new GroupSubject
-                    //    {
-                    //        Id = 6,
-                    //        GroupId = 2,
-                    //        SubjectId = (int)SubjectEnum.Hoa
-                    //    } ,
-                    //#endregion
-                    //#region Subject group 3
-                    //    new GroupSubject
-                    //    {
-                    //        Id = 7,
-                    //        GroupId = 3,
-                    //        SubjectId = (int)SubjectEnum.Su
-                    //    },
-                    //    new GroupSubject
-                    //    {
-                    //        Id = 8,
-                    //        GroupId = 3,
-                    //        SubjectId = (int)SubjectEnum.Dia
-                    //    }
-                    //#endregion
-                );
-                #endregion
+                //#region seed GroupSubjects
+                //modelBuilder.Entity<GroupSubject>().HasData(
+                //    DbSeed.GroupSubjects
+                //    #region Subject Group 1
+                //        new GroupSubject
+                //        {
+                //            Id = 1,
+                //            GroupId = 1,
+                //            SubjectId = (int)SubjectEnum.Toan
+                //        },
+                //        new GroupSubject
+                //        {
+                //            Id = 2,
+                //            GroupId = 1,
+                //            SubjectId = (int)SubjectEnum.Van
+                //        },
+                //        new GroupSubject
+                //        {
+                //            Id = 3,
+                //            GroupId = 1,
+                //            SubjectId = (int)SubjectEnum.Anh
+                //        },
+                //#endregion
+                //#region Subject group 2
+                //        new GroupSubject
+                //        {
+                //            Id = 4,
+                //            GroupId = 2,
+                //            SubjectId = (int)SubjectEnum.Toan
+                //        },
+                //        new GroupSubject
+                //        {
+                //            Id = 5,
+                //            GroupId = 2,
+                //            SubjectId = (int)SubjectEnum.Li
+                //        },
+                //        new GroupSubject
+                //        {
+                //            Id = 6,
+                //            GroupId = 2,
+                //            SubjectId = (int)SubjectEnum.Hoa
+                //        },
+                //#endregion
+                //#region Subject group 3
+                //        new GroupSubject
+                //        {
+                //            Id = 7,
+                //            GroupId = 3,
+                //            SubjectId = (int)SubjectEnum.Su
+                //        },
+                //        new GroupSubject
+                //        {
+                //            Id = 8,
+                //            GroupId = 3,
+                //            SubjectId = (int)SubjectEnum.Dia
+                //        }
+                //        #endregion
+                //);
+                //#endregion
                 #region Seed GroupMembers
                 modelBuilder.Entity<GroupMember>().HasData(
                     DbSeed.GroupMembers
