@@ -34,6 +34,6 @@ namespace ShareResource.DTO
 
         public TimeSpan ScheduleStartTime { get; set; }
         public TimeSpan ScheduleEndTime { get; set; }
-        public virtual ICollection<SubjectEnum> SubjectIds { get; set; }
+        //public virtual ICollection<SubjectEnum> SubjectIds { get; set; }
     }
 }

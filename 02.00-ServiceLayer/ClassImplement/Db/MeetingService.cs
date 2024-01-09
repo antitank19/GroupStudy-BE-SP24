@@ -58,6 +58,11 @@ namespace ServiceLayer.ClassImplement.Db
                 ScheduleStart = date.Add(dto.ScheduleStartTime),
                 ScheduleEnd = date.Add(dto.ScheduleEndTime),
             }).ToList();
+
+            List<GroupSubject> createSubjects = dto.SubjectIds.Select(subjectId => new GroupSubject
+            {
+                SubjectId = (int)subjectId,
+            }).ToList();
             string daysOfWeek = daysOfWeekToString(dto.DayOfWeeks);
             Console.WriteLine($"+++===+++===+++===+++===+++===+++===\n{daysOfWeek}");
             Schedule schedule = new Schedule
@@ -69,7 +74,8 @@ namespace ServiceLayer.ClassImplement.Db
                 EndDate = dto.ScheduleRangeEnd,
                 StartTime = dto.ScheduleStartTime,
                 EndTime = dto.ScheduleEndTime,
-                Meetings = creatingMeetings
+                Meetings = creatingMeetings,
+                GroupSubjects = createSubjects,
             };
             //return await repos.Meetings.MassCreateAsync(creatingMeetings);
             await repos.Schedules.CreateAsync(schedule);

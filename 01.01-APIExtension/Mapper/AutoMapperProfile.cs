@@ -79,9 +79,9 @@ namespace ShareResource.Mapper
 
         private void MapSchedule()
         {
-            CreateMap<ScheduleMeetingCreateDto, Schedule>()
-                 .ForMember(dest => dest.GroupSubjects, opt => opt.MapFrom(
-                    src => src.SubjectIds.Select(id => new GroupSubject { SubjectId = (int)id })));
+            //CreateMap<ScheduleMeetingCreateDto, Schedule>()
+            //     .ForMember(dest => dest.GroupSubjects, opt => opt.MapFrom(
+            //        src => src.SubjectIds.Select(id => new GroupSubject { SubjectId = (int)id })));
             CreateMap<Schedule, ScheduleGetDto>()
             //Live
                 .ForMember(dest => dest.CurrentLiveMeeting, opt => opt.MapFrom(
